@@ -9,23 +9,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.core.screen.ScreenKey
-import cafe.adriel.voyager.core.screen.uniqueScreenKey
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 
-data class ScreenTwo(val name: String) : Screen {
+class ScreenTwo() : Screen {
 
     @Composable
     override fun Content() {
-        ScreenTwoContent(name = name)
+        ScreenTwoContent()
     }
 }
 
 @Composable
-fun ScreenTwoContent(modifier: Modifier = Modifier, name: String) {
+fun ScreenTwoContent(modifier: Modifier = Modifier) {
     val navigator = LocalNavigator.currentOrThrow
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -33,7 +30,6 @@ fun ScreenTwoContent(modifier: Modifier = Modifier, name: String) {
         modifier = Modifier.fillMaxSize()
     ) {
         Text(text = "Screen 2", fontSize = 45.sp)
-        Text(text = "Hello $name", fontSize = 45.sp)
         Button(onClick = { navigator.pop() }) {
             Text(text = "Go Back")
         }
