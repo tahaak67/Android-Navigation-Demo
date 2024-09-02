@@ -59,7 +59,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-//    implementation(libs.androidx.material.icons)
+    implementation(libs.androidx.material.icons.extended)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -71,6 +71,17 @@ dependencies {
     val nav_version = "2.7.7"
 
     implementation("androidx.navigation:navigation-compose:$nav_version")
+
+
+
+    val voyagerVersion = "1.1.0-beta02"
+
+    // Multiplatform
+    // Navigator
+    implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+
+    // Transitions
+    implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
 }
 
 
