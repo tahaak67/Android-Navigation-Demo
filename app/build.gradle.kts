@@ -1,9 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
+
     namespace = "com.example.democlass"
     compileSdk = 34
 
@@ -47,6 +49,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
 }
 
 dependencies {
@@ -79,9 +82,31 @@ dependencies {
     // Multiplatform
     // Navigator
     implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
-
+// Screen Model
+    implementation("cafe.adriel.voyager:voyager-screenmodel:$voyagerVersion")
     // Transitions
     implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
+
+    val lifecycle_version = "2.8.4"
+    val arch_version = "2.2.0"
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+
+    val room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$room_version")
+    //ksp("androidx.room:room-compiler:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+
+
+
+
 }
 
 
